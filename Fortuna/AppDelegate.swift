@@ -26,8 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let path = negativeQuotesPath {
             negativeQuotes = loadJSON(path) as [String]
         }
+        
         assert(positiveQuotes.count > 0, "should load positive quotes")
         assert(negativeQuotes.count > 0, "should load negative quotes")
+        
         return true
     }
     

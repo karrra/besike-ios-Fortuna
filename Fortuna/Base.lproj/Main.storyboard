@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Hello, World!" textAlignment="center" id="skQ-nq-cK0">
-                                <rect key="frame" x="35" y="90" width="250" height="568"/>
+                                <rect key="frame" x="35" y="90" width="250" height="250"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -22,11 +22,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="1" y="1" width="1" height="1"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="GHn-9C-t8q" appends="YES" id="N4F-ge-M5x"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="quotationTextView" destination="skQ-nq-cK0" id="BX6-fw-MEH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="GHn-9C-t8q">
+                    <connections>
+                        <action selector="rootViewTapped:" destination="BYZ-38-t0r" id="VSH-KK-Won"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="243.19999999999999" y="205.42666666666668"/>
+            <point key="canvasLocation" x="328" y="241"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
