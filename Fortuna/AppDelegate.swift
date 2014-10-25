@@ -12,11 +12,33 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var positiveQuotes: [String]!
+    var negativeQuotes: [String]!
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        let positiveQuotesPath = NSBundle.mainBundle().pathForResource("positiveQuotes", ofType: "json")
+        let negativeQuotesPath = NSBundle.mainBundle().pathForResource("negativeQuotes", ofType: "json")
+        if let path = positiveQuotesPath {
+            positiveQuotes = loadJSON(path) as [String]
+        }
+        
+        if let path = negativeQuotesPath {
+            negativeQuotes = loadJSON(path) as [String]
+        }
+        assert(positiveQuotes.count > 0, "should load positive quotes")
+        assert(negativeQuotes.count > 0, "should load negative quotes")
         return true
+    }
+    
+    func loadJSON(path: String) -> AnyObject? {
+        let data = NSData(contentsOfFile: path)
+        assert(data != nil, "Failed to read data from: \(path)")
+        var err: NSError?
+        let json: AnyObject? = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions.allZeros, error: &err)
+        assert(err == nil, "Error parsing json: \(err)")
+        
+        return json
     }
 
     func applicationWillResignActive(application: UIApplication) {

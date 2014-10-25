@@ -12,6 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("Hacking in Swift, since iOS 8")
+        println("controller: \(self)")
+        println("view: \(self.view)")
+        println("view's frame: \(self.view.frame)")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
